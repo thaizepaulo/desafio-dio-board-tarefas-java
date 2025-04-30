@@ -1,10 +1,13 @@
 package br.com.dio.ui;
 
 import br.com.dio.persistence.entity.BoardEntity;
+import br.com.dio.service.BoardQueryService;
 import lombok.AllArgsConstructor;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import static br.com.dio.persistence.config.ConnectionConfig.getConnection;
 
 @AllArgsConstructor
 public class BoardMenu {
@@ -64,7 +67,16 @@ public class BoardMenu {
     private void cancelCard() {
     }
 
-    private void showBoard() {
+    private void showBoard() throws SQLException {
+        try(var connection = getConnection()){
+            var optional = new BoardQueryService(connection).showBoardDetails(entity.getId());
+            optional.ifPresent(b -> {
+                System.out.printf("Board [%s,%s]\n", b.id(), b.name());
+                b.columns().forEach(c ->
+                        System.out.printf("Coluna [%s] tipo: [%s] tem %s cards\n", c.name(), c.kind(), c.cardsAmount())
+                );
+            });
+        }
     }
 
     private void showColumn() {
