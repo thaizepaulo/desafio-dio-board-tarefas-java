@@ -1,15 +1,15 @@
-mai. 06, 2025 4:48:19 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202504291025.sql
-mai. 06, 2025 4:48:19 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202504291134.sql
-mai. 06, 2025 4:48:19 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202504291142.sql
-mai. 06, 2025 4:48:19 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migrations/db.changelog-202504291147.sql
-mai. 06, 2025 4:48:19 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading from board.DATABASECHANGELOG
 Database is up to date, no changesets to execute
-mai. 06, 2025 4:48:20 PM liquibase.changelog
+mai. 06, 2025 5:01:51 PM liquibase.changelog
 INFORMAÇÕES: Reading from board.DATABASECHANGELOG
 
 UPDATE SUMMARY
@@ -19,21 +19,21 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: Run:                          0
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: Previously run:               4
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: -------------------------------
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-mai. 06, 2025 4:48:20 PM liquibase.util
+mai. 06, 2025 5:01:51 PM liquibase.util
 INFORMAÇÕES: Update summary generated
-mai. 06, 2025 4:48:20 PM liquibase.lockservice
+mai. 06, 2025 5:01:51 PM liquibase.lockservice
 INFORMAÇÕES: Successfully released change log lock
-mai. 06, 2025 4:48:20 PM liquibase.command
+mai. 06, 2025 5:01:51 PM liquibase.command
 INFORMAÇÕES: Command execution complete
