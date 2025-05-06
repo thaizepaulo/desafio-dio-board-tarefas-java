@@ -2,9 +2,11 @@ package br.com.dio.ui;
 
 import br.com.dio.persistence.entity.BoardColumnEntity;
 import br.com.dio.persistence.entity.BoardEntity;
+import br.com.dio.persistence.entity.CardEntity;
 import br.com.dio.service.BoardColumnQueryService;
 import br.com.dio.service.BoardQueryService;
 import br.com.dio.service.CardQueryService;
+import br.com.dio.service.CardService;
 import lombok.AllArgsConstructor;
 
 import java.sql.SQLException;
@@ -55,9 +57,17 @@ public class BoardMenu {
         }
     }
 
-    private void createCard() {
+    private void createCard() throws SQLException{
+        var card = new CardEntity();
+        System.out.println("Informe o título do card");
+        card.setTitle(scanner.next());
+        System.out.println("Informe a descrição do card");
+        card.setDescription(scanner.next());
+        card.setBoardColumn(entity.getInitialColumn());
+        try(var connection = getConnection()){
+            new CardService(connection).create(card);
+        }
     }
-
     private void moveCardToNextColumn() {
     }
 
@@ -94,7 +104,7 @@ public class BoardMenu {
             var column = new BoardColumnQueryService(connection).findById(selectedColumnId);
             column.ifPresent(co -> {
                 System.out.printf("Coluna %s tipo %s\n", co.getName(), co.getKind());
-                co.getCards().forEach(ca -> System.out.printf("Card %s - %s\nDescrição: %s",
+                co.getCards().forEach(ca -> System.out.printf("Card %s - %s\nDescrição: %s\n",
                         ca.getId(), ca.getTitle(), ca.getDescription()));
             });
         }

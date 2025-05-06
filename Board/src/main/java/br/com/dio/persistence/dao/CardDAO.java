@@ -1,6 +1,8 @@
 package br.com.dio.persistence.dao;
 
 import br.com.dio.dto.CardDetailsDTO;
+import br.com.dio.persistence.entity.CardEntity;
+import com.mysql.cj.jdbc.StatementImpl;
 import lombok.AllArgsConstructor;
 
 import java.sql.Connection;
@@ -14,6 +16,21 @@ import static java.util.Objects.nonNull;
 public class CardDAO {
 
     private Connection connection;
+
+    public CardEntity insert(final CardEntity entity) throws SQLException {
+        var sql = "INSERT INTO CARDS (title, description, board_column_id) values (?, ?, ?);";
+        try(var statement = connection.prepareStatement(sql)){
+            var i = 1;
+            statement.setString(i ++, entity.getTitle());
+            statement.setString(i ++, entity.getDescription());
+            statement.setLong(i, entity.getBoardColumn().getId());
+            statement.executeUpdate();
+            if (statement instanceof StatementImpl impl){
+                entity.setId(impl.getLastInsertID());
+            }
+        }
+        return entity;
+    }
 
     public Optional<CardDetailsDTO> findById(final Long id) throws SQLException {
         var sql =
@@ -37,6 +54,7 @@ public class CardDAO {
                   WHERE c.id = ?;
                 """;
         try(var statement = connection.prepareStatement(sql)){
+            //TODO - verificar se o board é o ativo
             statement.setLong(1, id);
             statement.executeQuery();
             var resultSet = statement.getResultSet();
